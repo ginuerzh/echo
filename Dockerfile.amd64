@@ -1,0 +1,20 @@
+FROM golang:1.13-alpine as build
+
+RUN mkdir /echo
+
+WORKDIR /echo
+
+ADD . /echo
+
+ARG GOPROXY=https://goproxy.io
+ARG GOOS=linux
+ARG GOARCH=amd64
+
+RUN GOPROXY=$GOPROXY GOOS=$GOOS GOARCH=$GOARCH go build -o /app/echo-srv echo/srv
+RUN GOPROXY=$GOPROXY GOOS=$GOOS GOARCH=$GOARCH go build -o /app/echo-gw echo/gw
+
+
+FROM alpine
+COPY --from=build /app /app
+
+ENTRYPOINT ["/app/echo-srv"]

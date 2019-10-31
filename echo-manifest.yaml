@@ -1,0 +1,12 @@
+image: ginuerzh/echo:0.0.1
+tags: ['latest']
+manifests:
+  - image: ginuerzh/echo:0.0.1-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: ginuerzh/echo:0.0.1-arm
+    platform:
+      architecture: arm
+      os: linux
+

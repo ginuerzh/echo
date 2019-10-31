@@ -1,11 +1,11 @@
-image: ginuerzh/echo:0.0.1
+image: ginuerzh/echo:0.0.2
 tags: ['latest']
 manifests:
-  - image: ginuerzh/echo:0.0.1-amd64
+  - image: ginuerzh/echo:0.0.2-amd64
     platform:
       architecture: amd64
       os: linux
-  - image: ginuerzh/echo:0.0.1-arm
+  - image: ginuerzh/echo:0.0.2-arm
     platform:
       architecture: arm
       os: linux
